@@ -1,0 +1,33 @@
+
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('../fonts/Helvetica/Helvetica.eot');
+  src: url('../fonts/Helvetica/Helvetica.woff2') format('woff2'),
+       url('../fonts/Helvetica/Helvetica.woff') format('woff'),
+       url('../fonts/Helvetica/Helvetica.ttf') format('truetype'),
+       url('../fonts/Helvetica/Helvetica.svg#Helvetica') format('svg'),
+       url('../fonts/Helvetica/Helvetica.eot?#iefix') format('embedded-opentype');
+}
+
+@font-face {
+  font-family: 'Helvetica-Bold';
+  src: url('../fonts/Helvetica-Bold/Helvetica-Bold.eot');
+  src: url('../fonts/Helvetica-Bold/Helvetica-Bold.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Helvetica-Bold/Helvetica-Bold.svg#Helvetica-Bold') format('svg'),
+       url('../fonts/Helvetica-Bold/Helvetica-Bold.ttf') format('truetype'),
+       url('../fonts/Helvetica-Bold/Helvetica-Bold.woff') format('woff'),
+       url('../fonts/Helvetica-Bold/Helvetica-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Helvetica-Light';
+  src: url('../fonts/Helvetica-Light/Helvetica-Light.eot');
+  src: url('../fonts/Helvetica-Light/Helvetica-Light.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Helvetica-Light/Helvetica-Light.svg#Helvetica-Light') format('svg'),
+       url('../fonts/Helvetica-Light/Helvetica-Light.ttf') format('truetype'),
+       url('../fonts/Helvetica-Light/Helvetica-Light.woff') format('woff'),
+       url('../fonts/Helvetica-Light/Helvetica-Light.woff2') format('woff2');
+}
+
+

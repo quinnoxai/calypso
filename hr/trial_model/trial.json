@@ -1,0 +1,762 @@
+{
+	"intents": [{
+			"intent": "add_user",
+			"patterns": [
+				"How to add user in Calypso?",
+				"Do you know how to add user in Calypso?",
+				"Tell me how to add user in Calypso?",
+				"Add user in Calypso",
+				"what’s the process to create a new user?",
+				"Help me to add user in Calypso",
+				"How can I add user in Calypso?",
+				"Help me in adding user in Calypso?"
+			],
+			"response": "Please have the team manager send out a request via the Access Request system"
+		},
+		{
+			"intent": "existing_user",
+			"patterns": [
+				"How to mirror existing user?",
+				"Tell me how to mirror existing user?",
+				"Do you know anything about how to mirror existing user?",
+				"Do you have any idea related to mirror existing user?",
+				"How to set a new user similar to existing user?",
+				"How to set access permissions for new user similar to existing user?"
+			],
+			"response": "Via the Configuration--> Access Permissions Tab. A functionality"
+		},
+		{
+			"intent": "group_access_permission",
+			"patterns": [
+				"What is a Group?",
+				"Do you know what is a Group?",
+				"What do know about group?",
+				"Tell me something about group.",
+				"What is a Group in access permissions?",
+				"Do you know what is a group in access permissions?",
+				"Do you know anything about group in access permissions?",
+				"Tell me something about group in access permissions",
+				"Any idea about group in access permissions?",
+				"Do you have any idea about group in access permissions"
+			],
+			"response": "A group is a collection of users that share common tasks, and therefore share common access permissions."
+		},
+		{
+			"intent": "new_user_permission",
+			"patterns": [
+				"what are the permissions I can add for the new user?",
+				"Do you know what are the permissions I can add for the new user?",
+				"Tell me what are the permissions I can add for the new user?",
+				"process to add permissions for new user?",
+				"Tell me how to add permissions for new user?",
+				"Any idea about permissions I can add for new user?"
+			],
+			"response": "Permissions per user are assigned by the group they belong to. I have emailed you all the group names and a brief description of the roles each group performs."
+		},
+		{
+			"intent": "locked_user",
+			"patterns": [
+				"What to do if a user is locked?",
+				"Do you know what to do if a user is locked?",
+				"What do know about locked user?",
+				"Tell me what to do if a user is locked?",
+				"Do you know any process to do if a user is locked?",
+				"process to do if a user is locked?",
+				"Tell me what can i do if person is locked?",
+				"Any idea about process to do if person is locked?"
+			],
+			"response": "Uncheck the 'Locked' checkbox , enter new password and Save."
+		},
+		{
+			"intent": "reset_password",
+			"patterns": [
+				"How to reset password for a user?",
+				"Do you know how to reset password for a user?",
+				"What do know about resetting password for a user?",
+				"Tell me how to How to reset password for a user?",
+				"Do you know any process to How to reset password for a user?",
+				"process to reset password for a user?",
+				"Tell me how to reset password for a user?",
+				"Any idea about process to reset password for a user?"
+			],
+			"response": "Go to Configuration--> Access Permissions-->Type in new password for existing user & Save as new"
+		},
+		{
+			"intent": "existing_trades",
+			"patterns": [
+				"Where can I find existing trades in Calypso ?",
+				"Do you know where can I find existing trades in Calypso ?",
+				"Tell me where can I find existing trades in Calypso?",
+				"Do you know where can I find existing trades in Calypso ?",
+				"process to find existing trades in Calypso",
+				"Any idea about process to find existing trades in Calypso?"
+			],
+			"response": "Existing trades can be viewed either in Trade Blotter or in Trade Browser"
+		},
+		{
+			"intent": "pricing_sheet",
+			"patterns": [
+				"what is pricing sheet?",
+				"Do you know what is pricing sheet?",
+				"Tell me what is pricing sheet?",
+				"Do you know anything about pricing sheet?",
+				"Tell me something about pricing sheet?",
+				"Any idea about pricing sheet?"
+			],
+			"response": "The Pricing Sheet window allows capturing and pricing trades using predefined strategies based on your profile.The Pricing Sheet window may contain multiple pricing sheets by currency pair. Each pricing sheet may contain multiple trades based on the selected strategy. Pricing Sheets are created on-the-fly, however the configuration is stored by the user."
+		},
+		{
+			"intent": "pricing_grid",
+			"patterns": [
+				"what is pricing grid?",
+				"Do you know what is pricing grid?",
+				"Tell me what is pricing grid?",
+				"Do you know anything about pricing grid?",
+				"Tell me something about pricing grid?",
+				"Any idea about pricing grid?"
+			],
+			"response": "The Pricing Grid offers a user the ability to price trades using variables to predict trade behavior. A rates trader can configure multiple grids for products such as swaps, FRAs, Swap Butterflys and Swap Steepeners. The Pricing Grid is set up to view changes in real-time and to capture trades for these products.Strategies can be configured in the Pricing Sheet and loaded in the Pricing Grid."
+		},
+		{
+			"intent": "risk_config",
+			"patterns": [
+				"what is risk Config?",
+				"Do you know what is risk Config?",
+				"Tell me what is risk Config?",
+				"Do you know anything about risk Config?",
+				"Tell me something about risk Config?",
+				"Any idea about risk Config?"
+			],
+			"response": "Via Position & Risk-->Risk Config<br>The Risk Config window allows specifying an analysis set that contains a set of risk analyses to be run together using the scheduled task RISK_ANALYSIS. The results are saved to the database (provided you check (SAVE OUTPUT) and can be viewed in the Calypso Workstation. You can also save the results to a file (provided you check (Save To Format) and provide format information)."
+		},
+		{
+			"intent": "calypso_workstation",
+			"patterns": [
+				"what is calypso workstation?",
+				"Do you know what is calypso workstation?",
+				"Tell me what is calypso workstation?",
+				"Do you know anything about calypso workstation?",
+				"Tell me something about calypso workstation?",
+				"Any idea about calypso workstation?"
+			],
+			"response": "The Calypso Workstation allows viewing risk results from risk reports processed by the risk servers: Presentation Server and Calculation Server. OFFICIAL risk servers should be running to compute live reports; they should have a configuration that indicates which risk reports they need to compute. ADHOC risk servers should be running to load saved reports; they should have a configuration that indicates which risk reports they need to load."
+		},
+		{
+			"intent": "ob-demand_analysis",
+			"patterns": [
+				"what is an ob-demand analysis?",
+				"Do you know what is an ob-demand analysis?",
+				"Tell me what is an ob-demand analysis?",
+				"Do you know anything about an ob-demand analysis?",
+				"Tell me something about an ob-demand analysis?",
+				"Any idea about an ob-demand analysis?"
+			],
+			"response": "The On Demand Analysis window allows running risk analyses on-the-fly based on trade selections and/or trade filters, and allows creating speed buttons for various applications: Trade Blotter, Calypso Activity Browser, Trade Windows, Pricing Sheet, Calypso Workstation. The output can be viewed in the Calypso Workstation or can be saved to a file.The On Demand Analysis window can be used in multiple ways:You can run (Ad Hoc) risk analyses on-the-fly - (Ad Hoc) indicating that you select the parameters of the risk analysis on-the-fly.You can run (On Demand) risk analyses on-the-fly - (On Demand) indicating that you select pre-defined parameters. This requires the configuration of pre-defined parameters.You can define speed buttons to be used in other applications."
+		},
+		{
+			"intent": "loading_particular_trade",
+			"patterns": [
+				"How to load a particular trade ID?",
+				"Do you know how to load a particular trade ID??",
+				"Tell me how to load a particular trade ID?",
+				"Do you know anything about loading a particular trade ID?",
+				"Tell me something about loading a particular trade ID",
+				"Any idea about loading a particular trade ID?",
+				"Process for loading a particular trade ID"
+			],
+			"response": "This can be achieved either by Quick search window OR Trade Browser OR Trade Blotter with Quick search window being the fastest & simplest."
+		},
+		{
+			"intent": "loading_particular_message",
+			"patterns": [
+				"How to load a particular message?",
+				"How to load a particular message directly in Calypso?",
+				"Do you know how to load a particular message?",
+				"Do you know how to load a particular message directly in Calypso?",
+				"Tell me how to load a particular message?",
+				"Tell me how to load a particular message directly in Calypso?",
+				"Do you know anything about loading a particular message?",
+				"Do you know anything about loading a particular message directly in Calypso?",
+				"Tell me something about loading a particular message",
+				"Tell me something about loading a particular message directly in Calypso",
+				"Any idea about loading a particular message?",
+				"Any idea about loading a particular message directly in Calypso?",
+				"Process for loading a particular message",
+				"Process for loading a particular message directly in Calypso"
+			],
+			"response": "Message ID can be entered in Quick search window by selecting Type as Message ID."
+		},
+		{
+			"intent": "loading_particular_posting",
+			"patterns": [
+				"How to load a particular posting?",
+				"How to load a particular posting directly in Calypso?",
+				"Do you know how to load a particular posting?",
+				"Do you know how to load a particular posting directly in Calypso?",
+				"Tell me how to load a particular posting?",
+				"Tell me how to load a particular posting directly in Calypso?",
+				"Do you know anything about loading a particular posting?",
+				"Do you know anything about loading a particular posting directly in Calypso?",
+				"Tell me something about loading a particular posting",
+				"Tell me something about loading a particular posting directly in Calypso",
+				"Any idea about loading a particular posting?",
+				"Any idea about loading a particular posting directly in Calypso?",
+				"Process for loading a particular posting",
+				"Process for loading a particular posting directly in Calypso"
+			],
+			"response": "Posting ID can be entered in Quick search window by selecting Type as Posting ID."
+		},
+		{
+			"intent": "loading_particular_transfer",
+			"patterns": [
+				"How to load a particular transfer?",
+				"How to load a particular transfer directly in Calypso?",
+				"Do you know how to load a particular transfer?",
+				"Do you know how to load a particular transfer directly in Calypso?",
+				"Tell me how to load a particular transfer?",
+				"Tell me how to load a particular transfer directly in Calypso?",
+				"Do you know anything about loading a particular transfer?",
+				"Do you know anything about loading a particular transfer directly in Calypso?",
+				"Tell me something about loading a particular transfer",
+				"Tell me something about loading a particular transfer directly in Calypso",
+				"Any idea about loading a particular transfer?",
+				"Any idea about loading a particular transfer directly in Calypso?",
+				"Process for loading a particular transfer",
+				"Process for loading a particular transfer directly in Calypso"
+			],
+			"response": "Posting ID can be entered in Quick search window by selecting Type as Posting ID."
+		},
+		{
+			"intent": "data_authorization",
+			"patterns": [
+				"what is data Authorization?",
+				"Do you know what is data Authorization?",
+				"Tell me what is data Authorization?",
+				"Do you know anything about data Authorization?",
+				"Tell me something about data Authorization?",
+				"Any idea about data Authorization?"
+			],
+			"response": "Calypso provides the ability to run the system in Authorization mode. In Authorization mode, any change to static data must be authorized by an authorization user. An authorization user is a user who has permission to authorize modifications  and who is different from the user who actually made the modifications.The Authorization mode only applies to classes specified in the classAuthMode domain."
+		},
+		{
+			"intent": "booked_product_type",
+			"patterns": [
+				"How to check which product types are getting booked in Calypso?",
+				"Do you know how to check which product types are getting booked in Calypso?",
+				"Tell me how to check which product types are getting booked in Calypso?",
+				"Do you know anything about how to check which product types are getting booked in Calypso?",
+				"Tell me something about how to check which product types are getting booked in Calypso?",
+				"Any idea about how to check which product types are getting booked in Calypso?"
+			],
+			"response": "Trade browser has a criteria for Product types.Check loading any product type , if trades appear that particular product type is getting traded in Calypso"
+		},
+		{
+			"intent": "booked_trades_on_particular_date",
+			"patterns": [
+				"How to check which trades got booked on particular date?",
+				"Do you know which trades got booked on particular date?",
+				"Tell me which trades got booked on particular date?",
+				"Do you know anything about which trades got booked on particular date?",
+				"Tell me something about which trades got booked on particular date?",
+				"Any idea about which trades got booked on particular date?",
+				"Give trades got booked on particular date",
+				"Give me trades got booked on particular date"
+			],
+			"response": "From Trade Browser 'Trade' field field is used by entering required start and end date."
+		},
+		{
+			"intent": "booked_defined",
+			"patterns": [
+				"Where are books defined in Calypso?",
+				"Do you know where are books defined in Calypso?",
+				"Tell me where are books defined in Calypso?",
+				"Do you know anything about where are books defined in Calypso?",
+				"Tell me something about where are books defined in Calypso?",
+				"Any idea about where are books defined in Calypso?"
+			],
+			"response": "Go to Configuration-->Books & Bundles--> Trading Book"
+		},
+		{
+			"intent": "trading_book",
+			"patterns": [
+				"What is a trading book?",
+				"trading book",
+				"Do you know what is a trading book?",
+				"Tell me a what is trading book?",
+				"Do you know anything about what is a trading book?",
+				"Tell me something about what is a trading book?",
+				"Any idea about what is a trading book?"
+			],
+			"response": "A trading book is a collection of trades that represent a business activity within your organization."
+		},
+		{
+			"intent": "accounting_book_link",
+			"patterns": [
+				"What is an accounting book?",
+				"What is an accounting link?",
+				"accounting book",
+				"accounting link",
+				"Do you know what is an accounting book?",
+				"Tell me what is an accounting book?",
+				"Do you know anything about what is an accounting book?",
+				"Tell me something about what is accounting book?",
+				"Any idea about what is accounting book?",
+				"Do you know what is an accounting link?",
+				"Tell me what is an accounting link?",
+				"Do you know anything about what is an accounting link?",
+				"Tell me something about what is accounting link?",
+				"Any idea about what is accounting link?"
+			],
+			"response": "Accounting books collect postings that share the activity of one or multiple trading books. When defining a trading book, you need to associate it with an accounting book in order to generate postings."
+		},
+		{
+			"intent": "accounting_event",
+			"patterns": [
+				"What is an accounting event?",
+				"accounting event",
+				"Do you know what is an accounting event?",
+				"Tell me what is an accounting event?",
+				"Do you know anything about what is an accounting event?",
+				"Tell me something about what is accounting event?",
+				"Any idea about what is accounting event?"
+			],
+			"response": "Accounting Events are a combination of triggering events (trade creation, payment, reset, trade termination, valuation, etc.), the amount to be posted, and the posting dates. In other words, for each product type, you can use a given set of predefined accounting events that can be triggered by a given set of events. You can create custom accounting events as needed."
+		},
+		{
+			"intent": "counterparty_trade",
+			"patterns": [
+				"Where is CounterParty used on Trade defined in Calypso?",
+				"Do you know Where is CounterParty used on Trade defined in Calypso?",
+				"Tell me Where is CounterParty used on Trade defined in Calypso?",
+				"Do you know anything about Where is CounterParty used on Trade defined in Calypso?",
+				"Tell me something about Where is CounterParty used on Trade defined in Calypso",
+				"Any idea about Where is CounterParty used on Trade defined in Calypso"
+			],
+			"response": "Legal Entity screen,<br>Go to Configuration--> Legal Data--> Entities"
+		},
+		{
+			"intent": "accounting_rule",
+			"patterns": [
+				"What is an accounting book?",
+				"What is an accounting link?",
+				"accounting rule",
+				"Do you know what is an accounting book?",
+				"Tell me what is an accounting book?",
+				"Do you know anything about what is an accounting book?",
+				"Tell me something about what is accounting book?",
+				"Any idea about what is accounting book?"
+			],
+			"response": "An accounting rule tells the Accounting engine that, if a certain type of event occurs, then it should create a particular type of posting and post it to a particular account. It specifies the link between accounting events, accounts, and accounting books."
+		},
+		{
+			"intent": "static_data_filter",
+			"patterns": [
+				"What is a static data filter?",
+				"static data filter",
+				"Do you know what is a static data filter?",
+				"Tell me what is a static data filter?",
+				"Do you know anything about what is a static data filter?",
+				"Tell me something about what is a static data filter?",
+				"Any idea about what is a static data filter?"
+			],
+			"response": "Static Data Filters allow filtering and grouping accounts, messages, trades, transfers and tasks for back office processing based on user-defined criteria. Static Data Filters are used in the definition of back office configurations such as settlement instructions, workflows, message generation, etc. to restrict their application."
+		},
+		{
+			"intent": "trade_filter",
+			"patterns": [
+				"What is a trade filter?",
+				"trade filter",
+				"Do you know what is a trade filter?",
+				"Tell me what is a trade filter?",
+				"Do you know anything about what is a trade filter?",
+				"Tell me something about what is a trade filter?",
+				"Any idea about what is a trade filter?"
+			],
+			"response": "Trade Filters allow defining dynamic collections of trades based on user-defined criteria. They are used in reports and processes throughout the system to load the trades that satisfy the criteria."
+		},
+		{
+			"intent": "filterset",
+			"patterns": [
+				"What is a filterset?",
+				"filterset",
+				"Do you know what is a filterset?",
+				"Tell me what is a filterset?",
+				"Do you know anything about what is a filterset?",
+				"Tell me something about what is a filterset?",
+				"Any idea about what is a filterset?"
+			],
+			"response": "Filter sets allow defining dynamic collections of trades based on any user-defined criteria."
+		},
+		{
+			"intent": "legal_entity",
+			"patterns": [
+				"What is a legal entity?",
+				"legal entity",
+				"Do you know what is a legal entity?",
+				"Tell me what is a legal entity?",
+				"Do you know anything about what is a legal entity?",
+				"Tell me something about what is a legal entity?",
+				"Any idea about what is a legal entity?"
+			],
+			"response": "A legal entity represents an organization that plays a role in a trade.Your organization is identified with the role ProcessingOrg, while the other side of a trade is identified with the role CounterParty. Other roles are also available for legal entities related to a trade such as agents for payments, issuers, market places, etc.The roles of a legal entity control what type of actity the lega; entity can carry out within system."
+		},
+		{
+			"intent": "message_set-up",
+			"patterns": [
+				"What is a Message Set-up?",
+				"Message Set-up",
+				"Do you know what is a Message Set-up?",
+				"Tell me what is a Message Set-up?",
+				"Do you know anything about what is a Message Set-up?",
+				"Tell me something about what is a Message Set-up?",
+				"Any idea about what is a Message Set-up?"
+			],
+			"response": "The Message Set-Up window allows defining message configurations.A message identifies any document or payment that you send to an organization (including people within your organization) to alert them about an event that has occurred on a trade, payment, reset, etc."
+		},
+		{
+			"intent": "message_sender",
+			"patterns": [
+				"What is a message sender?",
+				"message sender",
+				"Do you know what is a message sender?",
+				"Tell me what is a message sender?",
+				"Do you know anything about what is a message sender?",
+				"Tell me something about what is a message sender?",
+				"Any idea about what is a message sender?"
+			],
+			"response": "Once messages have been generated by the message engine, the sender engine sends the actual documents attached to the messages based on message sender configurations.Message sender configurations define if the documents are saved to the database, how they are sent to the recipients, and if copies of the documents are required."
+		},
+		{
+			"intent": "settlement_delivery_instruction",
+			"patterns": [
+				"What is a settlement delivery instruction?",
+				"settlement delivery instruction",
+				"SDI",
+				"What is SDI?",
+				"Do you know about SDI?",
+				"Tell me what is a settlement delivery instruction?",
+				"Tell me what is a SDI?",
+				"Do you know anything about what is a SDI?",
+				"Tell me something about what is a settlement delivery instruction?",
+				"Any idea about settlement delivery instruction?",
+				"Any idea about SDI?"
+			],
+			"response": "Settlement and Delivery Instructions (SDIs) are used to specify how transfers of cash and securities are handled between two parties: what parties are involved in the transfer, and how the cash and securities travel between the parties based on the settlement method."
+		},
+		{
+			"intent": "workflow",
+			"patterns": [
+				"What is a workflow?",
+				"workflow",
+				"Do you know about workflow?",
+				"Tell me what is a workflow?",
+				"Do you know anything about what is a workflow?",
+				"Tell me something about what is a workflow?",
+				"Any idea about workflow?"
+			],
+			"response": "Workflow requires specifying all the transitions that can be carried out for back office activity."
+		},
+		{
+			"intent": "domain_values",
+			"patterns": [
+				"What is a domain values?",
+				"domain values",
+				"Do you know about domain values?",
+				"Tell me what is a domain values?",
+				"Do you know anything about what is a domain values?",
+				"Tell me something about what is a domain values?",
+				"Any idea about domain values?"
+			],
+			"response": "Domain data are the most basic data required for operating the system, such as typed lists that will be available for selection from the various windows.Some domain data are user-defined (like custom attribute values), while others are dictated by the system (like legal entity roles)."
+		},
+		{
+			"intent": "scheduled_task",
+			"patterns": [
+				"What is a scheduled task?",
+				"scheduled task",
+				"Do you know about scheduled task?",
+				"Hey Bot, Show me some Schedule Tasks",
+				"Tell me what is a scheduled task?",
+				"Do you know anything about what is a scheduled task?",
+				"Tell me something about what is a scheduled task?",
+				"Any idea about scheduled task?"
+			],
+			"response": "Scheduled Tasks are specifically used to perform an activity (e.g. generate a report, save quotes, and rate resets) in batch mode. Used to automating tasks which can involve manual errors."
+		},
+		{
+			"intent": "scheduled_task_window",
+			"patterns": [
+				"where is a scheduled task window?",
+				"scheduled task window",
+				"Do you know where is scheduled task window?",
+				"Tell me where is a scheduled task window?",
+				"Do you know anything about where is a scheduled task window?",
+				"Tell me something about where is a scheduled task window?",
+				"Any idea where is scheduled task window?"
+			],
+			"response": "Go to Configuration--> Scheduled Tasks"
+		},
+		{
+			"intent": "cost_associated_with_each_user",
+			"patterns": [
+				"Is there a cost associated with each user?",
+				"Do you know is there a cost associated with each user?",
+				"Tell me where is there a cost associated with each user?",
+				"Do you know anything about cost associated with each user",
+				"Tell me something about cost associated with each user",
+				"Any idea about cost associated with each user"
+			],
+			"response": "Yes there is a monthly maintenance cost of $$$ per user"
+		},
+		{
+			"intent": "raise_support_ticket",
+			"patterns": [
+				"How do I raise a support ticket?",
+				"Do you know how do I raise a support ticket?",
+				"Tell me how do I raise a support ticket?",
+				"Do you know anything about how do I raise a support ticket",
+				"Tell me something about how do I raise a support ticket",
+				"Any idea how do I raise a support ticket?"
+			],
+			"response": "Please send an email to support@suntrust.com"
+		},
+		{
+			"intent": "request_for_enhancement",
+			"patterns": [
+				"How do I request for an enhancement?",
+				"Do you know how do I request for an enhancement?",
+				"Tell me how do I request for an enhancement?",
+				"Do you know anything about how do I request for an enhancement?",
+				"Tell me something about how do I request for an enhancement?",
+				"Any idea how do I request for an enhancement?"
+			],
+			"response": "Please send an email to support@suntrust.com"
+		},
+		{
+			"intent": "technology_used_for_calypso",
+			"patterns": [
+				"Underlying technology used for Calypso",
+				"Do you know technology used for Calypso?",
+				"Tell me technology used for Calypso?",
+				"Do you know anything about technology used for Calypso?",
+				"Tell me something about technology used for Calypso?",
+				"Any idea technology used for Calypso?"
+			],
+			"response": "Java"
+		},
+		{
+			"intent": "add_trading_book",
+			"patterns": [
+				"Process to add trading Book",
+				"Do you know process to add trading Book?",
+				"Tell me process to add trading Book?",
+				"Do you know anything about Process to add trading Book?",
+				"Tell me something about Process to add trading Book?",
+				"Any idea Process to add trading Book?"
+			],
+			"response": "Middle office prepares a form , which is passed on in excel format to respective teams.Once all teams approve , book is ready for trading"
+		},
+		{
+			"intent": "market_book",
+			"patterns": [
+				"Process to get market data",
+				"Do you know process to get market data?",
+				"Tell me process to get market data?",
+				"Do you know anything about Process to get market data?",
+				"Tell me something about Process to get market data?",
+				"Any idea Process to get market data?"
+			],
+			"response": "From Reuters & Bloomberg.Can view market data on various Calypso screens & also extract them in excel/csv etc. formats"
+		},
+		{
+			"intent": "software_requirements_while_installing_Calypso",
+			"patterns": [
+				"What are the software requirements while installing Calypso?",
+				"Do you know What are the software requirements while installing Calypso?",
+				"Tell me What are the software requirements while installing Calypso?",
+				"Do you know anything about What are the software requirements while installing Calypso?",
+				"Tell me something about What are the software requirements while installing Calypso?",
+				"Any idea What are the software requirements while installing Calypso?"
+			],
+			"response": "For local installation-Oracle or Sybase  database, Jboss server, JAVA jdk, jdbc jar, and if you are going to run jnlp file to access calypso on your machine then you would require java installed on your machine."
+		},
+		{
+			"intent": "status_report",
+			"patterns": [
+				"Show me status report for 1234",
+				"Tell me about my task status",
+				"Status of task 2222",
+				"Do you know about my task status",
+				"Give me my Task status",
+				"Help me with my task 2222 status"
+			],
+			"response": "Task_status"
+		},
+		{
+			"intent": "Task_type",
+			"patterns": [
+				"Show me task type for 1234",
+				"Tell me about my task type",
+				"Task type of 12869",
+				"Do you know about my task type",
+				"Give me my Task type for",
+				"Help me with my task 2222 type"
+			],
+			"response": "Task_type"
+		},
+		{
+			"intent": "Task_parent",
+			"patterns": [
+				"Show me task parent for 1234",
+				"Tell me about my task type",
+				"Task parent of 12869",
+				"Do you know parent of task",
+				"parent of task 2389",
+				"show parent of task 7675"
+			],
+			"response": "Task_parent"
+		},
+		{
+			"intent": "jnlp_file",
+			"patterns": [
+				"What is jnlp file ?",
+				"Do you know what is jnlp file ?",
+				"Tell me what is jnlp file ?",
+				"Do you know anything about what is jnlp file ?",
+				"Tell me something about what is jnlp file ?",
+				"Any idea what is jnlp file ?"
+			],
+			"response": "The Java Network Launch Protocol (JNLP) enables an application to be launched on a client desktop by using resources that are hosted on a remote web server.To launch calypso using any web browser, a jnlp file gets downloaded after clicking on the link provided helping to launch Calypso Navigator."
+		},
+		{
+			"intent": "successful_tasks",
+			"patterns": [
+				"successful tasks",
+				"Show me some Successful Tasks",
+				"Give me my successful tasks",
+				"Show me my successful tasks",
+				"Do you know my successful tasks",
+				"Tell me all my successful tasks",
+				"Do you know anything about successful tasks",
+				"Tell me something about my successful tasks",
+				"Any idea about my successful tasks",
+				"Hey Buddy, Show me something on successful Tasks "
+			],
+			"response": "successful_tasks"
+		},
+		{
+			"intent": "failed_tasks",
+			"patterns": [
+				"failed tasks",
+				"Show me some failed tasks",
+				"Give me my failed tasks",
+				"Show me my failed tasks",
+				"Do you know my failed tasks",
+				"Tell me all my failed tasks",
+				"Do you know anything about failed tasks",
+				"Tell me something about my failed tasks",
+				"Hey Buddy, Show me something on Failed Tasks",
+				"Any idea about my failed tasks"
+			],
+			"response": "failed_tasks"
+		},
+		{
+			"intent": "finish_with_error_tasks",
+			"patterns": [
+				"finish with errors tasks",
+				"Show me some finish with errors tasks",
+				"Give me my finish with errors tasks",
+				"Show me my finish with errors tasks",
+				"Do you know my finish with errors tasks",
+				"Tell me all my finish with errors tasks",
+				"Do you know anything about finish with errors tasks",
+				"Tell me something about my finish with errors tasks",
+				"Any idea about my finish with errors tasks",
+				"Hey Buddy, Show me something on tasks finished with errors"
+			],
+			"response": "finish_with_error_tasks"
+		},
+		{
+			"intent": "untriggered_tasks",
+			"patterns": [
+				"untriggered tasks",
+				"Show me some untriggered tasks",
+				"Give me my untriggered tasks",
+				"Show me my untriggered tasks",
+				"Do you know my untriggered tasks",
+				"Tell me all my untriggered tasks",
+				"Do you know anything about untriggered tasks",
+				"Tell me something about my untriggered tasks",
+				"Any idea about my untriggered tasks",
+				"not triggered tasks",
+				"Give me my not triggered tasks",
+				"Show me my not triggered tasks",
+				"Do you know my not triggered tasks",
+				"Tell me all my not triggered tasks",
+				"Do you know anything about not triggered tasks",
+				"Tell me something about my not triggered tasks",
+				"Any idea about my not triggered tasks",
+				"Hey Buddy, Show me something on untriggered Tasks"
+			],
+			"response": "untriggered_tasks"
+		},
+		{
+			"intent": "status_name",
+			"patterns": [
+				"Show me the status of BALANCE_1",
+				"Tell me the status of task",
+				"help me with the status of task",
+				"Do you know the status of task",
+				"Give me the status task",
+				"Provide the status of task"
+			],
+			"response": "status_name"
+		},
+		{
+			"intent": "Task_valuation",
+			"patterns": [
+				"Show me task valuation time for 1234",
+				"Tell me about my task valuation time",
+				"Do you know task valuation of task 1334",
+				"valuation of task 2389",
+				"show valuation of task 7675"
+			],
+			"response": "Task_valuation"
+		},
+		{
+      "intent": "SOP_user_guide",
+      "patterns": [
+        "Show me SOP on user guide",
+        "Tell me SOP about user guide",
+        "user guide SOP",
+        "Do you know user guide SOP",
+        "Give me SOP of user guide",
+        "Pull up user guide sop"
+      ],
+      "response": "about_user_guide"
+    },
+      {
+      "intent": "SOP_book_creation",
+      "patterns": [
+        "Show me SOP on book creation",
+        "Tell me SOP about book creation",
+        "book creation SOP",
+        "Do you know book creation SOP",
+        "Give me SOP of book creation",
+        "Pull up book creation sop"
+      ],
+      "response": "about_book_creation"
+    },
+		{
+			"intent": "my_reports",
+			"patterns": [
+				"Have all of my reports been generated today?",
+				"Give me status on all my reports?",
+				"Tell me status of all my reports?",
+				"status on all my reports",
+				"Help me with status of all my reports"
+			],
+			"response": "my_reports"
+		}
+	]
+}
