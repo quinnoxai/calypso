@@ -2,7 +2,7 @@ var ww = $(window).width();
 var images = [];
 var voiceMsg = new SpeechSynthesisUtterance();
 var voices = window.speechSynthesis.getVoices();
-
+var voiceAllowed = 0;
 function preload() {
     for (var i = 0; i < arguments.length; i++) {
         images[i] = new Image();
@@ -14,7 +14,8 @@ $(window).on("load",function(){
     //$(".botContent").mCustomScrollbar();
     $(".preLoader").delay(2000).fadeOut(function(){
         $("body").addClass("loaded");
-        showWelcomeBotMsg();
+
+
     });
 });
 $(document).ready(function(){
@@ -28,14 +29,38 @@ $(document).ready(function(){
 
 function loadHUXDetails(){
 
-    var data = [[0,4, "Good evening"],[4, 12, "Good morning"],[12, 16, "Good afternoon"],[16, 24, "Good evening"]];
+    $.ajax({
+        url: '/helpdesk/welcome/',
+        type: 'POST',
+        success: function(response){
+        var username=response.firstname;
+        first_name = username;
+        var firstAlpha = (username.charAt(0)).toUpperCase();
+        $(".profileDiv > a").html(firstAlpha);
+        var data = [[0,4, "Good morning, "],[4, 12, "Good morning, "],[12, 16, "Good afternoon, "],[16, 24, "Good evening, "]];
         var hr = new Date().getHours();
         for(var i=0; i<data.length;i++){
             if(hr >= data[i][0] && hr <= data[i][1]){
-                $(".time_widget > p").html(data[i][2]);
+                $(".time_widget p").html(data[i][2] + "<span>"+first_name+"!</span>");
                 break;
             }
         }
+        var role=response.role;
+        if(role =="admin"){
+            $(".rShow").show();
+        }
+        else
+        {
+            $(".rShow").hide();
+        }
+
+        showWelcomeBotMsg(response)
+
+        }
+        ,error:function(response){
+
+        }
+    });
 
     $.get("https://ipinfo.io?token=ddac43663aea73", function (response) {
         $(".weather_widget > p").html(response.city);
@@ -196,11 +221,12 @@ showMustacheTemplateObj = function (options) {
     changeBotIcon();
 };
 
-function showWelcomeBotMsg(){
+function showWelcomeBotMsg(response){
+
     var options = {
         templateId: '#temp_botText',
         msgContainerId: '#chatContent',
-        textMsg: "Hi, Sara. <br> I am Callie. How Can I help you?"
+        textMsg: response.response
     };
     showMustacheTemplateText(options);
     textToSpeech(options.textMsg);
@@ -288,7 +314,7 @@ function respnseFromText(textVal){
             {
             console.log("Here in else of table")
             var options = {templateId: '#temp_botText',msgContainerId: '#chatContent',textMsg:response.response,category_required:response.category_required,category:response.category,domain_name:response.domain_name};
-
+                var taskType = options.textMsg;
              showMustacheTemplateText(options);
 			textToSpeech(options.textMsg);
                           scrollChatDown();
@@ -298,6 +324,8 @@ function respnseFromText(textVal){
 			    var options = {templateId: '#temp_table',msgContainerId: '#chatContent',textMsg:response,category_required:response.category_required,category:response.category,data:response.data,domain_name:response.domain_name};
 
                 showMustacheTemplateText(options);
+                $(options.msgContainerId).find(".chatMsg:last-child .text .taskType").val(taskType);
+                //taskType
                 scrollChatDown();
                  //showGraph();
 			},3000)
@@ -365,7 +393,7 @@ showMustacheBotSuggestions = function (options){
 };
 
 
-var voiceAllowed = 1;
+
 $(document).on("click",".iconVoice",function(){
     $(this).toggleClass("iconVoiceBan");
     if(voiceAllowed === 1) {
@@ -759,6 +787,7 @@ $(".bDatePicker").change(function() {
 
 /**show graph**/
 $(document).on("click",".btGraphLinkTC table tbody tr td a",function(){
+    var taskType = $(this).closest(".text").find(".taskType").val();
     var options = {
             templateId: '#temp_graph',
             msgContainerId: '#chatContent',
@@ -766,7 +795,7 @@ $(document).on("click",".btGraphLinkTC table tbody tr td a",function(){
     };
     showMustacheTemplateText(options);
     scrollChatDown();
-    showGraph();
+    showGraph(taskType);
 });
 
 

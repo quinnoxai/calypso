@@ -31,3 +31,38 @@
 }
 
 
+
+/**segoeUi**/
+@font-face {
+  font-family: 'segoeui';
+  src: url('../fonts/segoeui/segoeui.eot');
+  src: url('../fonts/segoeui/segoeui.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/segoeui/segoeui.ttf') format('truetype'),
+       url('../fonts/segoeui/segoeui.svg#segoeui') format('svg');
+}
+
+@font-face {
+  font-family: 'segoeuib';
+  src: url('../fonts/segoeuib/segoeuib.eot');
+  src: url('../fonts/segoeuib/segoeuib.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/segoeuib/segoeuib.ttf') format('truetype'),
+       url('../fonts/segoeuib/segoeuib.svg#segoeuib') format('svg');
+}
+
+@font-face {
+  font-family: 'segoeuil';
+  src: url('../fonts/segoeuil/segoeuil.eot');
+  src: url('../fonts/segoeuil/segoeuil.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/segoeuil/segoeuil.ttf') format('truetype'),
+       url('../fonts/segoeuil/segoeuil.svg#segoeuil') format('svg');
+}
+
+@font-face {
+  font-family: 'seguisb';
+  src: url('../fonts/seguisb/seguisb.eot');
+  src: url('../fonts/seguisb/seguisb.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/seguisb/seguisb.ttf') format('truetype'),
+       url('../fonts/seguisb/seguisb.svg#seguisb') format('svg');
+}
+
+

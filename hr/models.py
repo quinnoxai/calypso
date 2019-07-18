@@ -4,43 +4,32 @@ from mongoengine import *
 from mongoengine import Document
 #     comments = ListField()
 from mongoengine import connect
+from django.core.validators import RegexValidator
 
-connect('helpdesk')
+#USERNAME_REGEX = '^[a-zA-Z0-9.+-]*$'
+from django.contrib.auth.models import (BaseUserManager, AbstractBaseUser)
 
-
-class IntentFeedback(Document):
-    name = StringField()
-    user_id =StringField()
-    sentence = StringField()
-    main_intent=StringField()
-    response_status=BooleanField()
-    dict_variable=DictField()
-    response=StringField()
-    timestamp = DateTimeField()
+connect('calypso')
 
 
 
-# meta = {'db_alias': 'user_activity'}
-class EmployeeFeedback(Document):
-    name= StringField()
-    user_id = IntField()
-    user_feedback = StringField()
-    timestamp=DateTimeField()
 
-class LetterTable(Document):
-    name= StringField()
-    response = StringField()
-    user_id = IntField()
-    sentence=StringField()
-    model_intent=StringField()
-    main_intent=StringField()
-    dict_info=DictField()
-    timestamp=DateTimeField()
+class CalypsoUser(Document):
+    firstname = StringField()
+    user_id = StringField()
+    username=StringField()
+    password= StringField()
+    emailid=StringField()
+    role=StringField()
+    lastname=StringField()
+
 
 class UserProfileInfo(models.Model):
-    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    role = models.TextField(blank=True)
     portfolio_site = models.URLField(blank=True)
-    profile_pic = models.ImageField(upload_to='profile_pics',blank=True)
+    profile_pic = models.ImageField(upload_to='profile_pics', blank=True)
+
 
 def __str__(self):
-    return self.user.username
+    return self.user.username, self.user.role

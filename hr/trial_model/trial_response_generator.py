@@ -6,7 +6,7 @@ import os
 import json
 import pandas as pd
 from hr.trial_model import intent_classification as ic
-from ..check_if_empty import is_empty
+from django.contrib.auth import authenticate
 from .status_indicator import get_status
 from .successful_tasks import get_successful_task
 from .failed import  get_failed_task
@@ -32,8 +32,8 @@ def classify_intent(sentence):
     return intent_received
 
 
-def get_response(sentence, received_dict, master_intent):
-    print("#####################",received_dict)
+def get_response(sentence, received_dict, master_intent,user_info):
+    print("#####################",user_info)
     if "response_complete" in received_dict and received_dict["response_complete"]=="no":
         model_intent=["my_reports"]
     else:
@@ -48,6 +48,7 @@ def get_response(sentence, received_dict, master_intent):
         if i["intent"] == model_intent[0]:
             # response = "<p>"+"At Quinnox, we take good care of our employees and cover them from very first day."+"<br/>"+"To know maore about mediclaim please download the below pdf or if you have any specific query please let me know."+"<br/>" + i["response"] + "</p> <br/>" + random.choice(dats)
             status_response_check =  i["response"]
+
             if status_response_check == 'Task_status':
                 status_response=get_status(sentence,status_response_check)
                 response = status_response
@@ -106,7 +107,7 @@ def get_response(sentence, received_dict, master_intent):
                 print("list",status_list)
                 data={"data":[{'Task ID':a,'External Ref':b,'Execution Time':c,'Error Count':d}for a,b,c,d in status_list]}
                 dict_return["data"]=data
-                dict_return["response"]="Hey Sara, here are the successful tasks list you enquired for"
+                dict_return["response"]="Here are the successful tasks list you enquired for"
                 dict_return["output"]="table"
             elif status_response_check == 'Task_valuation':
                 status_response=get_status(sentence,status_response_check)
@@ -118,7 +119,7 @@ def get_response(sentence, received_dict, master_intent):
                 status_list=status_response.values.tolist()
                 data = {"data": [{'Task ID': a, 'External Ref': b, 'Execution Time': c, 'Error Count': d} for a, b, c, d in status_list]}
                 dict_return["data"]=data
-                dict_return["response"]="Hey Sara, here are the failed tasks list you enquired for"
+                dict_return["response"]="Here are the failed tasks list you enquired for"
                 dict_return["output"]="table"
                 dict_return["type"]="Failed Tasks"
             elif status_response_check == 'finish_with_error_tasks':
@@ -126,23 +127,36 @@ def get_response(sentence, received_dict, master_intent):
                 status_list=status_response.values.tolist()
                 data = {"data": [{'Task ID': a, 'External Ref': b, 'Execution Time': c, 'Error Count': d} for a, b, c, d in status_list]}
                 dict_return["data"]=data
-                dict_return["response"]="Hey Sara, here are the tasks finished with errors list you enquired for"
+                dict_return["response"]="Here are the tasks finished with errors list you enquired for"
                 dict_return["output"]="table"
             elif status_response_check == 'untriggered_tasks':
                 status_response=get_nottrigger_task(sentence,status_response_check)
                 status_list=status_response.values.tolist()
                 data={"data":[{'Task ID':a,'External Ref':b,'Execution Time':c,'Error Count':d}for a,b,c,d in status_list]}
                 dict_return["data"]=data
-                dict_return["response"]="Hey Sara, here are the untriggreded tasks list you enquired for"
+                dict_return["response"]="Here are the untriggreded tasks list you enquired for"
                 dict_return["output"]="table"
             elif status_response_check == 'about_user_guide':
-                dict_return["response"] = "Here's your User Guide SOP(Standard Operating Procedure Document)"
-                dict_return["output"] = "pdf"
-                dict_return["data"]={"data": [{"type_data": "img","data_link": "/static/images/UserGuide.docx","name":"SOP"}]}
+                    dict_return["response"] = "Here's your User Guide SOP(Standard Operating Procedure Document)"
+                    dict_return["output"] = "pdf"
+                    dict_return["data"]={"data": [{"type_data": "img","data_link": "/static/images/UserGuide.docx","name":"SOP"}]}
+            elif status_response_check == 'add_user':
+                if (user_info["role"] == "Support"):
+                    dict_return["response"] = "Follow this document to create the new user in the system."
+                    dict_return["output"] = "pdf"
+                    dict_return["data"]={"data": [{"type_data": "img","data_link": "/static/images/UserGuide.docx","name":"SOP"}]}
+                elif(user_info["role"] == "Back Office"):
+                    dict_return["response"] = "Sorry, you do not have the permissions to execute this functionality."
             elif status_response_check == 'about_book_creation':
                 dict_return["response"] = "Here's your Book Creation SOP(Standard Operating Procedure Document)"
                 dict_return["output"] = "pdf"
                 dict_return["data"]={"data": [{"type_data": "img","data_link": "/static/images/bookcreation.docx","name":"SOP"}]}
+            elif status_response_check == 'rerun_pricing_report':
+
+                if (user_info["role"] == "Support"):
+                    dict_return["response"] = "Sure, the task has been triggered."
+                elif (user_info["role"] == "Back Office"):
+                    dict_return["response"] = "Sorry, you do not have the permissions to execute this functionality."
             elif status_response_check == 'my_reports':
                 status_response = get_middle_response(sentence,received_dict)
                 dict_return= status_response
@@ -152,5 +166,5 @@ def get_response(sentence, received_dict, master_intent):
                 dict_return["response"] = response
             # dict_return["response"] = response
 
-
+    print("Dict _return in trail ressponse",dict_return)
     return dict_return

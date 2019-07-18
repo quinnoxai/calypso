@@ -3,23 +3,29 @@
 			"intent": "add_user",
 			"patterns": [
 				"How to add user in Calypso?",
+				"How do I add a user?",
+				"How can I add a new user?",
+				"Can you help me with new user creation?",
+				"how do we add new users",
 				"Do you know how to add user in Calypso?",
 				"Tell me how to add user in Calypso?",
 				"Add user in Calypso",
-				"what’s the process to create a new user?",
 				"Help me to add user in Calypso",
-				"How can I add user in Calypso?",
-				"Help me in adding user in Calypso?"
+				"what is the process to create a new user?",
+		  		"How do I add new user in Calypso?",
+				"Help me in adding user in Calypso?",
+				"How do i add new user?",
+				"How can we add user to calypso?"
 			],
-			"response": "Please have the team manager send out a request via the Access Request system"
+			"response": "add_user"
 		},
 		{
 			"intent": "existing_user",
 			"patterns": [
-				"How to mirror existing user?",
-				"Tell me how to mirror existing user?",
-				"Do you know anything about how to mirror existing user?",
-				"Do you have any idea related to mirror existing user?",
+				"How to mirror an existing user?",
+				"Tell me how to mirror an existing user?",
+				"Do you know anything about how to mirror existing users?",
+				"Do you have any idea related to mirroring existing user?",
 				"How to set a new user similar to existing user?",
 				"How to set access permissions for new user similar to existing user?"
 			],
@@ -146,6 +152,7 @@
 			"patterns": [
 				"what is an ob-demand analysis?",
 				"Do you know what is an ob-demand analysis?",
+				"Do you know what is an ob demand analysis?",
 				"Tell me what is an ob-demand analysis?",
 				"Do you know anything about an ob-demand analysis?",
 				"Tell me something about an ob-demand analysis?",
@@ -734,6 +741,17 @@
         "Pull up user guide sop"
       ],
       "response": "about_user_guide"
+    },
+		{
+      "intent": "rerun_pricing_report",
+      "patterns": [
+        "Please rerun the pricing report for the filter 'IRD trades'",
+        "rerun the pricing report for the filter 'IRD trades'",
+        "Can you rerun the pricing report for the filter 'IRD trades'",
+        "Help me to rerun the pricing report for the filter 'IRD trades'",
+        "rerun the pricing report"
+      ],
+      "response": "rerun_pricing_report"
     },
       {
       "intent": "SOP_book_creation",

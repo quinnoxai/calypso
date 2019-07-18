@@ -1,12 +1,5 @@
 from django import forms
-from hr.models import UserProfileInfo
-from django.contrib.auth.models import User
-class UserForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput())
-    class Meta():
-        model = User
-        fields = ('username','password','email')
-class UserProfileInfoForm(forms.ModelForm):
-     class Meta():
-         model = UserProfileInfo
-         fields = ('portfolio_site','profile_pic')
+
+class NameForm(forms.Form):
+    user_name = forms.CharField(label='User name', max_length=100)
+    user_password = forms.CharField(label = 'User Password', max_length=100)

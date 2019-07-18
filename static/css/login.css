@@ -1,0 +1,79 @@
+
+* {margin: 0; padding: 0;}
+html,body {height: 100%;}
+body { background-color: rgba(255, 255, 255, 0.95); color: #212121;}
+.loginWrapper {position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #fff; background-image: url(../images/loginbg1.jpg); background-repeat: no-repeat; background-size: auto 100%; background-position: center left;}
+.loginWrapper::before {content:"";position: absolute;top: 0;left: 0; width: 100%; height: 100%;    background-color: rgba(0, 0, 0, 0.3);}
+.loginContainerParent {position: relative;width: 44.0625%; height: 100%;}
+.loginContainer {  width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.95); display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; padding: 30px 18.6170% 30px 13.4751%; }
+.loginHeader {position: relative; width: 100%; margin-bottom: 70px;}
+.loginHeader a {display: inline-block; max-width: 150px;}
+.loginHeader a img {width: 100%; height: auto; vertical-align: top;}
+label {font-weight: normal;}
+.form-group {margin-bottom: 40px;}
+.loginContent {position: relative; width: 100%;}
+h1 { font-family: 'segoeuil',helvetica,sans-serif; font-size: 2.1rem;margin-top: 0; margin-bottom: 15px; line-height: normal; color: #212121;}
+h1 span {font-family: 'segoeui',helvetica,sans-serif;}
+.loginContent > p {color: #6d6e71; margin-bottom: 50px;font-family: 'seguisb',helvetica,sans-serif; font-size: 1.1rem;}
+.loginContent > h6 {color: #6d6e71; margin-top: 40px;font-family: 'segoeui',helvetica,sans-serif; font-size: 1rem;}
+.loginContent > h6 a {color: #055eab;font-family: 'seguisb',helvetica,sans-serif; }
+.loginContent > h6 a:hover {color: #000;}
+.fBox { background-color: #fff; border: 1px solid #d1d3d4; padding: 10px 20px; position: relative;}
+.fBox.active:before {content: ""; position: absolute; top: -1px; left: 0; width: 2px; height: calc(100% + 2px); background-color: #135eab;}
+.fBox:first-child {margin-bottom: 0; border-bottom: 0;}
+.fBox label {color: #231f20;font-family: 'segoeui',helvetica,sans-serif; font-size: 1rem; position: absolute; top: 30px; left: 20px; width:calc(100% - 40px); display: block; cursor: text;transition: all .15s ease-in-out; margin-bottom: 0;}
+.fBox > .form-control {border:none !important;color: #231f20 !important; font-family: 'seguisb',helvetica,sans-serif; padding: 20px 0 0 0; height: 45px;    box-shadow: none;}
+.fBox > .form-control:focus + label,.fBox > .form-control:valid + label { font-size: 0.9rem; color: #989898; cursor: default; top: 12px; width: auto;}
+
+.cbLink {display: flex; justify-content: space-between;}
+.cbLink a {color: #055eab;font-family: 'seguisb',helvetica,sans-serif;}
+.cbLink a:hover {color: #045091;}
+.cbLink label {font-family: 'segoeui',helvetica,sans-serif; font-size: 1rem;color: #231f20; margin-bottom: 0; }
+.btn_submit {min-width: 115px; height: 40px;font-family: 'seguisb',helvetica,sans-serif; border-radius: 0;}
+/* .form-group.vError .form-control {border-color: #ff0000;} */
+.errorText { position: absolute; top: 12px; right: 20px; color: #ff0000; font-size: 0.9rem; font-style: italic; display: none;}
+.vError .errorText {display: block;}
+
+.loginFooter {margin-top: auto;}
+.loginFooter > p {margin-bottom: 0; color: #939598; font-size: 0.9rem;}
+.loginFooter > p > a {max-width: 75px; margin-left: 5px; display: inline-block;}
+.loginFooter > p > a > img {width: 100%;height: auto; vertical-align: middle;}
+.lCheckbox {position: relative; padding-left: 5px;}
+input[type="checkbox"] { margin: 0; opacity: 0;}
+.lCheckbox input[type="checkbox"] + span {font-size: 1.5rem; color: #939598;}
+.lCheckbox input[type="checkbox"] + span:before {     content: "\f372";   position: relative;
+    display: inline-block;
+    font-family: "Ionicons";
+    font-style: normal;
+    font-weight: normal;
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+    text-rendering: auto;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; position: absolute; top: 50%; transform: translateY(-50%); left: 0;}  
+.lCheckbox input[type="checkbox"]:checked + span:before {content: "\f373";   position: relative;color: #055eab;
+display: inline-block;
+font-family: "Ionicons";
+font-style: normal;
+font-weight: normal;
+-webkit-transform: translate(0, 0);
+-ms-transform: translate(0, 0);
+-o-transform: translate(0, 0);
+transform: translate(0, 0);
+text-rendering: auto;
+speak: none;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale; position: absolute; top: 50%; transform: translateY(-50%); left: 0;}
+
+.helpModal a {color: #055eab;}
+.helpModal a:hover {color: #000;}
+.helpModal p span {font-family: 'seguisb',helvetica,sans-serif;}
+
+@media only screen and (max-width:600px) {
+.loginContainerParent {width:100%;}
+.loginContainer{padding:30px;}
+}
+

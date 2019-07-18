@@ -30,21 +30,24 @@
 	<ul class="headerRightSec">
 		<li class="time_widget">
 			<span>21:01</span>
-			<p>Good Afternoon!</p>
+			<p>Good Afternoon </p>
 		</li>
-		<li class="weather_widget"> 
+		<li class="weather_widget">
 			<span class="ion-icon">48°F</span>
 			<p class="currLoc">Mumbai</p>
 		</li>
 		<li class="notificationInfo">
-			<form action="/logout" id="logoutbtn" method="post" class="form-login">
-    		{% csrf_token %}
-			<button type="submit" class="btn btnLogout">Logout</button>
-			</form>
+
 		</li>
 	</ul>
-	<div class="profileContent">
-		<a href="javascript:void(0);">{{ user.username.0 }}</a>
+	<div class="profileDiv">
+		<a href="javascript:void(0);" id="username"> </a>
+		<div class="profileContent">
+			<form action="/helpdesk/login" id="logoutbtn" method="POST" class="form-login">
+			{% csrf_token %}
+			<button type="submit" class="btn btnLogout">Logout</button>
+			</form>
+		</div>
 	</div>
 </div>
 <!--header ends here-->
@@ -53,7 +56,7 @@
 		<div class="botContainer">
 			 <div class="botHeader">
 				<span class="botImg"><img src="{% static 'images/chatlogo.png' %}"></span> Callie, your Virtual Calypso Assistant
-				<span class="iconVoice"><img src="{% static 'images/voiceIcon.svg' %}"></span>
+				<span class="iconVoice iconVoiceBan"><img src="{% static 'images/speaker.svg' %}"></span>
 			</div>
 			
 			<div class="botContent">
@@ -110,37 +113,37 @@
 									<tbody>
 										<tr>
 											<td>GL</td>
-											<td><i class="ion-ios-checkmark-outline" aria-hidden="true"></i></td>
+											<td><i class="ion-checkmark-circled" aria-hidden="true"></i></td>
 											<td></td>
 										</tr>
 										<tr class="error">
 											<td>STAR</td>
-											<td><i class="ion-ios-close" aria-hidden="true"></i></td>
+											<td><i class="ion-close-circled" aria-hidden="true"></i></td>
 											<td><a href="javascript:void(0);">More</a></td>
 										</tr>
 										<tr>
 											<td>Collateral</td>
-											<td><i class="ion-ios-checkmark-outline" aria-hidden="true"></i></td>
+											<td><i class="ion-checkmark-circled" aria-hidden="true"></i></td>
 											<td></td>
 										</tr>
 										<tr>
 											<td>Data Lake</td>
-											<td><i class="ion-ios-checkmark-outline" aria-hidden="true"></i></td>
+											<td><i class="ion-checkmark-circled" aria-hidden="true"></i></td>
 											<td></td>
 										</tr>
 										<tr>
 											<td>Ops portal</td>
-											<td><i class="ion-ios-checkmark-outline" aria-hidden="true"></i></td>
+											<td><i class="ion-checkmark-circled" aria-hidden="true"></i></td>
 											<td></td>
 										</tr>
 										<tr class="error">
 											<td>Tri Resolve</td>
-											<td><i class="ion-ios-close" aria-hidden="true"></i></td>
+											<td><i class="ion-close-circled" aria-hidden="true"></i></td>
 											<td><a href="javascript:void(0);">More</a></td>
 										</tr>
 										<tr>
 											<td>Imagine STP</td>
-											<td><i class="ion-ios-checkmark-outline" aria-hidden="true"></i></td>
+											<td><i class="ion-checkmark-circled" aria-hidden="true"></i></td>
 											<td></td>
 										</tr>
 									</tbody>
@@ -775,6 +778,7 @@
 					<img src="{% static 'images/botIcon_static.png' %}">
 				</span>
 				<div class="text">
+					<input type="hidden" class="taskType">
 					<!--<h4>{% templatetag openvariable %}{type}{% templatetag closevariable %}</h4>-->
 					<h4>Please check the below information:</h4>
 					<div class="botTableContainer btGraphLinkTC">
@@ -832,7 +836,7 @@
 					<div class="botGraphContainer">
 						<h5>Here are your insights on the Task Duration:</h5>
 						<div class="graphContainer">
-							<div class="graphContent" style="width:100%; min-width:320px; height: 280px;"></div>
+							<div class="graphContent" style="width:100%; min-width:320px; height: 300px;"></div>
 						</div>
 					</div>
 				</div>
@@ -852,7 +856,7 @@
 			<div class="text">
 				<div class="suggestionsList">
 					{% templatetag openvariable %}#data{% templatetag closevariable %}
-					<div class="btnAttachment" data-src="{% templatetag openvariable %} data_link {% templatetag closevariable %}" data-type="{% templatetag openvariable %}type_data{% templatetag closevariable %}"> <i>{% templatetag openvariable %}name{% templatetag closevariable %}</i> <a href="{% templatetag openvariable %}data_link{% templatetag closevariable %}" download="true" target="_blank">Download</a></div>
+					<div class="btnAttachment" data-src="{% templatetag openvariable %} data_link {% templatetag closevariable %}" data-type="{% templatetag openvariable %}type_data{% templatetag closevariable %}"> <i>{% templatetag openvariable %}name{% templatetag closevariable %}</i> <a href="{% templatetag openvariable %}data_link{% templatetag closevariable %}" download="true">Download</a></div>
 					{% templatetag openvariable %} /data{% templatetag closevariable %}
 				</div>
 			</div>
@@ -946,13 +950,78 @@ $(document).ready(function(){
 
 	//showMustacheTemplateFeedsSuggestions(options);
 	$( ".bDatePicker" ).datepicker();
+
+	//load logged in user data
+	/*$.ajax({
+			url: '/authenticate/',
+			type: 'POST',
+			data: '',
+			success: function(response){
+			localStorage.setItem("firstname",response.firstname);
+			localStorage.setItem("initials",response.initials);
+			location.href="/homepageview/"
+			},
+			error:function(response){
+				console.log("response: " + response);
+			}
+		});
+		*/
+
 });
 
 // Create the chart
-function showGraph(){
+function showGraph(taskType){
 $(".botGraphContainer").show();
 var $container = $(".botMsg:last-child .graphContent");
+var singleBar = [{
+      name: "Browsers",
+      colorByPoint: true,
+      data: [
+        {
+          name: "Task 1",
+          y: 62.74
+        },
+        {
+          name: "Task 2",
+          y: 10.57
+        },
+        {
+          name: "Task 3",
+          y: 7.23
+        },
+        {
+          name: "Task 4",
+          y: 5.58
+        },
+        {
+          name: "Task 5",
+          y: 9.5
+        }
+      ]
+    }]
+var multiBar = [{
+        name: 'Task 1',
+        data: [49.9, 71.5, 106.4, 129.2, 144.0]
 
+    }, {
+        name: 'Avg Task 1',
+        data: [83.6, 78.8, 98.5, 93.4, 106.0]
+
+    }]
+ var barType;
+ if(taskType == "Here are the successful tasks list you enquired for"){
+	barType = multiBar;
+ }
+ else if(taskType == "Here are the failed tasks list you enquired for"){
+	barType = multiBar;
+ }
+ else if(taskType == "Here are the tasks finished with errors list you enquired for"){
+	barType = multiBar;
+ }
+ else
+ {
+ 	barType = singleBar;
+ }
 Highcharts.chart({
   chart: {
     type: 'column',
@@ -990,30 +1059,7 @@ Highcharts.chart({
     pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}</b> of total<br/>'
   },
 
-  series: [
-    {
-      name: "Browsers",
-      colorByPoint: true,
-      data: [
-        {
-          name: "Task 1",
-          y: 62.74
-        },
-        {
-          name: "Task 2",
-          y: 10.57
-        },
-        {
-          name: "Task 3",
-          y: 7.23
-        },
-        {
-          name: "Task 4",
-          y: 5.58
-        }
-      ]
-    }
-  ]
+  series: barType
 });
 }
 </script>
